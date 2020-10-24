@@ -1,0 +1,114 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text HLabel 1950 2250 0    50   Input ~ 0
+IN
+Text HLabel 2950 1900 2    50   Input ~ 0
+OUT
+$Comp
+L Transistor_FET:IRLZ44N Q2
+U 1 1 60091104
+P 2750 2250
+AR Path="/60041CA2/60091104" Ref="Q2"  Part="1" 
+AR Path="/6005538F/60091104" Ref="Q4"  Part="1" 
+AR Path="/60047352/60091104" Ref="Q3"  Part="1" 
+AR Path="/60055395/60091104" Ref="Q5"  Part="1" 
+F 0 "Q5" H 2954 2296 50  0000 L CNN
+F 1 "IRLZ44N" H 2954 2205 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-220-3_Vertical" H 3000 2175 50  0001 L CIN
+F 3 "http://www.irf.com/product-info/datasheets/data/irlz44n.pdf" H 2750 2250 50  0001 L CNN
+	1    2750 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR055
+U 1 1 60092BD4
+P 2850 2550
+AR Path="/60041CA2/60092BD4" Ref="#PWR055"  Part="1" 
+AR Path="/6005538F/60092BD4" Ref="#PWR059"  Part="1" 
+AR Path="/60047352/60092BD4" Ref="#PWR057"  Part="1" 
+AR Path="/60055395/60092BD4" Ref="#PWR061"  Part="1" 
+F 0 "#PWR061" H 2850 2300 50  0001 C CNN
+F 1 "GND" H 2855 2377 50  0000 C CNN
+F 2 "" H 2850 2550 50  0001 C CNN
+F 3 "" H 2850 2550 50  0001 C CNN
+	1    2850 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 2450 2850 2550
+Wire Wire Line
+	2950 1900 2850 1900
+Wire Wire Line
+	2850 1900 2850 2050
+$Comp
+L Device:R_Small R23
+U 1 1 60093386
+P 2150 2250
+AR Path="/60041CA2/60093386" Ref="R23"  Part="1" 
+AR Path="/6005538F/60093386" Ref="R27"  Part="1" 
+AR Path="/60047352/60093386" Ref="R25"  Part="1" 
+AR Path="/60055395/60093386" Ref="R29"  Part="1" 
+F 0 "R29" V 1954 2250 50  0000 C CNN
+F 1 "1k" V 2045 2250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 2150 2250 50  0001 C CNN
+F 3 "~" H 2150 2250 50  0001 C CNN
+F 4 "C11702" V 2150 2250 50  0001 C CNN "LCSC"
+	1    2150 2250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1950 2250 2050 2250
+Wire Wire Line
+	2550 2250 2400 2250
+$Comp
+L Device:R_Small R24
+U 1 1 60093ACC
+P 2400 2400
+AR Path="/60041CA2/60093ACC" Ref="R24"  Part="1" 
+AR Path="/6005538F/60093ACC" Ref="R28"  Part="1" 
+AR Path="/60047352/60093ACC" Ref="R26"  Part="1" 
+AR Path="/60055395/60093ACC" Ref="R30"  Part="1" 
+F 0 "R30" H 2459 2446 50  0000 L CNN
+F 1 "220k" H 2459 2355 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" H 2400 2400 50  0001 C CNN
+F 3 "~" H 2400 2400 50  0001 C CNN
+F 4 "C25767" H 2400 2400 50  0001 C CNN "LCSC"
+	1    2400 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 2300 2400 2250
+Connection ~ 2400 2250
+Wire Wire Line
+	2400 2250 2250 2250
+$Comp
+L power:GND #PWR054
+U 1 1 60094060
+P 2400 2550
+AR Path="/60041CA2/60094060" Ref="#PWR054"  Part="1" 
+AR Path="/6005538F/60094060" Ref="#PWR058"  Part="1" 
+AR Path="/60047352/60094060" Ref="#PWR056"  Part="1" 
+AR Path="/60055395/60094060" Ref="#PWR060"  Part="1" 
+F 0 "#PWR060" H 2400 2300 50  0001 C CNN
+F 1 "GND" H 2405 2377 50  0000 C CNN
+F 2 "" H 2400 2550 50  0001 C CNN
+F 3 "" H 2400 2550 50  0001 C CNN
+	1    2400 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 2500 2400 2550
+$EndSCHEMATC

@@ -1,0 +1,544 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:AudioJack3 J?
+U 1 1 60002071
+P 1050 1250
+AR Path="/60002071" Ref="J?"  Part="1" 
+AR Path="/5FFD0414/60002071" Ref="J9"  Part="1" 
+F 0 "J9" H 1032 1575 50  0000 C CNN
+F 1 "FootSW" H 1032 1484 50  0000 C CNN
+F 2 "Hardware:Audio_Jack_6.35mm" H 1050 1250 50  0001 C CNN
+F 3 "~" H 1050 1250 50  0001 C CNN
+	1    1050 1250
+	1    0    0    -1  
+$EndComp
+Text GLabel 1250 1150 2    50   Input ~ 0
+FOOT_EXT_L
+Text GLabel 1250 1250 2    50   Input ~ 0
+FOOT_EXT_R
+$Comp
+L power:GND #PWR?
+U 1 1 60002079
+P 1300 1400
+AR Path="/60002079" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/60002079" Ref="#PWR043"  Part="1" 
+F 0 "#PWR043" H 1300 1150 50  0001 C CNN
+F 1 "GND" H 1305 1227 50  0000 C CNN
+F 2 "" H 1300 1400 50  0001 C CNN
+F 3 "" H 1300 1400 50  0001 C CNN
+	1    1300 1400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1250 1350 1300 1350
+Wire Wire Line
+	1300 1350 1300 1400
+$Comp
+L 74xx:74HC14 U?
+U 1 1 60002085
+P 3400 4250
+AR Path="/60002085" Ref="U?"  Part="1" 
+AR Path="/5FFD0414/60002085" Ref="U1"  Part="1" 
+F 0 "U1" H 3400 4567 50  0000 C CNN
+F 1 "74HC14" H 3400 4476 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-14_3.9x8.7mm_Pitch1.27mm" H 3400 4250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 3400 4250 50  0001 C CNN
+	1    3400 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74HC14 U?
+U 7 1 6000208B
+P 1300 3200
+AR Path="/6000208B" Ref="U?"  Part="7" 
+AR Path="/5FFD0414/6000208B" Ref="U1"  Part="7" 
+F 0 "U1" H 1530 3246 50  0000 L CNN
+F 1 "74HC14" H 1530 3155 50  0000 L CNN
+F 2 "Housings_SOIC:SOIC-14_3.9x8.7mm_Pitch1.27mm" H 1300 3200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 1300 3200 50  0001 C CNN
+F 4 "C5605" H 1300 3200 50  0001 C CNN "LCSC"
+	7    1300 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60002091
+P 1300 3700
+AR Path="/60002091" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/60002091" Ref="#PWR045"  Part="1" 
+F 0 "#PWR045" H 1300 3450 50  0001 C CNN
+F 1 "GND" H 1305 3527 50  0000 C CNN
+F 2 "" H 1300 3700 50  0001 C CNN
+F 3 "" H 1300 3700 50  0001 C CNN
+	1    1300 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 6000209D
+P 1300 2700
+AR Path="/6000209D" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/6000209D" Ref="#PWR044"  Part="1" 
+F 0 "#PWR044" H 1300 2550 50  0001 C CNN
+F 1 "+3V3" H 1315 2873 50  0000 C CNN
+F 2 "" H 1300 2700 50  0001 C CNN
+F 3 "" H 1300 2700 50  0001 C CNN
+	1    1300 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74HC14 U?
+U 2 1 600020A9
+P 3400 3050
+AR Path="/600020A9" Ref="U?"  Part="2" 
+AR Path="/5FFD0414/600020A9" Ref="U1"  Part="2" 
+F 0 "U1" H 3400 3367 50  0000 C CNN
+F 1 "74HC14" H 3400 3276 50  0000 C CNN
+F 2 "Housings_SOIC:SOIC-14_3.9x8.7mm_Pitch1.27mm" H 3400 3050 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 3400 3050 50  0001 C CNN
+	2    3400 3050
+	1    0    0    -1  
+$EndComp
+Text GLabel 3700 3050 2    50   Input ~ 0
+FOOT_L_DB
+Text GLabel 2650 3050 0    50   Input ~ 0
+FOOT_L
+$Comp
+L power:+3V3 #PWR?
+U 1 1 600020B1
+P 2700 2600
+AR Path="/600020B1" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/600020B1" Ref="#PWR047"  Part="1" 
+F 0 "#PWR047" H 2700 2450 50  0001 C CNN
+F 1 "+3V3" H 2715 2773 50  0000 C CNN
+F 2 "" H 2700 2600 50  0001 C CNN
+F 3 "" H 2700 2600 50  0001 C CNN
+	1    2700 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 600020B7
+P 2700 2700
+AR Path="/600020B7" Ref="R?"  Part="1" 
+AR Path="/5FFD0414/600020B7" Ref="R18"  Part="1" 
+F 0 "R18" H 2759 2746 50  0000 L CNN
+F 1 "51k" H 2759 2655 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" H 2700 2700 50  0001 C CNN
+F 3 "~" H 2700 2700 50  0001 C CNN
+F 4 "C25794" H 2700 2700 50  0001 C CNN "LCSC"
+	1    2700 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Small D?
+U 1 1 600020BD
+P 2900 3050
+AR Path="/600020BD" Ref="D?"  Part="1" 
+AR Path="/5FFD0414/600020BD" Ref="D9"  Part="1" 
+F 0 "D9" H 2900 2843 50  0000 C CNN
+F 1 "1N4148" H 2900 2934 50  0000 C CNN
+F 2 "Diodes_SMD:D_SOD-123" V 2900 3050 50  0001 C CNN
+F 3 "~" V 2900 3050 50  0001 C CNN
+F 4 "C81598" H 2900 3050 50  0001 C CNN "LCSC"
+	1    2900 3050
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 600020C3
+P 2900 3250
+AR Path="/600020C3" Ref="R?"  Part="1" 
+AR Path="/5FFD0414/600020C3" Ref="R20"  Part="1" 
+F 0 "R20" V 3100 3250 50  0000 C CNN
+F 1 "22k" V 3000 3250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 2900 3250 50  0001 C CNN
+F 3 "~" H 2900 3250 50  0001 C CNN
+F 4 "C25768" V 2900 3250 50  0001 C CNN "LCSC"
+	1    2900 3250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2700 2800 2700 3050
+Wire Wire Line
+	2700 3050 2800 3050
+Wire Wire Line
+	2700 3050 2700 3250
+Wire Wire Line
+	2700 3250 2800 3250
+Connection ~ 2700 3050
+Wire Wire Line
+	2700 3050 2650 3050
+Wire Wire Line
+	3100 3050 3000 3050
+Connection ~ 3100 3050
+Wire Wire Line
+	3000 3250 3100 3250
+Wire Wire Line
+	3100 3050 3100 3250
+$Comp
+L Device:C_Small C?
+U 1 1 600020D3
+P 3100 3400
+AR Path="/600020D3" Ref="C?"  Part="1" 
+AR Path="/5FFD0414/600020D3" Ref="C19"  Part="1" 
+F 0 "C19" H 3192 3446 50  0000 L CNN
+F 1 "1uF" H 3192 3355 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 3100 3400 50  0001 C CNN
+F 3 "~" H 3100 3400 50  0001 C CNN
+F 4 "C52923" H 3100 3400 50  0001 C CNN "LCSC"
+	1    3100 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 3250 3100 3300
+Connection ~ 3100 3250
+$Comp
+L power:GND #PWR?
+U 1 1 600020DB
+P 3100 3500
+AR Path="/600020DB" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/600020DB" Ref="#PWR049"  Part="1" 
+F 0 "#PWR049" H 3100 3250 50  0001 C CNN
+F 1 "GND" H 3105 3327 50  0000 C CNN
+F 2 "" H 3100 3500 50  0001 C CNN
+F 3 "" H 3100 3500 50  0001 C CNN
+	1    3100 3500
+	1    0    0    -1  
+$EndComp
+Text GLabel 2650 4250 0    50   Input ~ 0
+FOOT_R
+$Comp
+L power:+3V3 #PWR?
+U 1 1 600020E2
+P 2700 3800
+AR Path="/600020E2" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/600020E2" Ref="#PWR048"  Part="1" 
+F 0 "#PWR048" H 2700 3650 50  0001 C CNN
+F 1 "+3V3" H 2715 3973 50  0000 C CNN
+F 2 "" H 2700 3800 50  0001 C CNN
+F 3 "" H 2700 3800 50  0001 C CNN
+	1    2700 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 600020E8
+P 2700 3900
+AR Path="/600020E8" Ref="R?"  Part="1" 
+AR Path="/5FFD0414/600020E8" Ref="R19"  Part="1" 
+F 0 "R19" H 2759 3946 50  0000 L CNN
+F 1 "51k" H 2759 3855 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" H 2700 3900 50  0001 C CNN
+F 3 "~" H 2700 3900 50  0001 C CNN
+F 4 "C25794" H 2700 3900 50  0001 C CNN "LCSC"
+	1    2700 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Small D?
+U 1 1 600020EE
+P 2900 4250
+AR Path="/600020EE" Ref="D?"  Part="1" 
+AR Path="/5FFD0414/600020EE" Ref="D10"  Part="1" 
+F 0 "D10" H 2900 4043 50  0000 C CNN
+F 1 "1N4148" H 2900 4134 50  0000 C CNN
+F 2 "Diodes_SMD:D_SOD-123" V 2900 4250 50  0001 C CNN
+F 3 "~" V 2900 4250 50  0001 C CNN
+F 4 "C81598" H 2900 4250 50  0001 C CNN "LCSC"
+	1    2900 4250
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 600020F4
+P 2900 4450
+AR Path="/600020F4" Ref="R?"  Part="1" 
+AR Path="/5FFD0414/600020F4" Ref="R21"  Part="1" 
+F 0 "R21" V 3100 4450 50  0000 C CNN
+F 1 "22k" V 3000 4450 50  0000 C CNN
+F 2 "Resistors_SMD:R_0402" H 2900 4450 50  0001 C CNN
+F 3 "~" H 2900 4450 50  0001 C CNN
+F 4 "C25768" V 2900 4450 50  0001 C CNN "LCSC"
+	1    2900 4450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2700 4000 2700 4250
+Wire Wire Line
+	2700 4250 2800 4250
+Wire Wire Line
+	2700 4250 2700 4450
+Wire Wire Line
+	2700 4450 2800 4450
+Connection ~ 2700 4250
+Wire Wire Line
+	2700 4250 2650 4250
+Wire Wire Line
+	3100 4250 3000 4250
+Wire Wire Line
+	3000 4450 3100 4450
+Wire Wire Line
+	3100 4250 3100 4450
+$Comp
+L Device:C_Small C?
+U 1 1 60002103
+P 3100 4600
+AR Path="/60002103" Ref="C?"  Part="1" 
+AR Path="/5FFD0414/60002103" Ref="C20"  Part="1" 
+F 0 "C20" H 3192 4646 50  0000 L CNN
+F 1 "1uF" H 3192 4555 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 3100 4600 50  0001 C CNN
+F 3 "~" H 3100 4600 50  0001 C CNN
+F 4 "C52923" H 3100 4600 50  0001 C CNN "LCSC"
+	1    3100 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 4450 3100 4500
+Connection ~ 3100 4450
+$Comp
+L power:GND #PWR?
+U 1 1 6000210B
+P 3100 4700
+AR Path="/6000210B" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/6000210B" Ref="#PWR050"  Part="1" 
+F 0 "#PWR050" H 3100 4450 50  0001 C CNN
+F 1 "GND" H 3105 4527 50  0000 C CNN
+F 2 "" H 3100 4700 50  0001 C CNN
+F 3 "" H 3100 4700 50  0001 C CNN
+	1    3100 4700
+	1    0    0    -1  
+$EndComp
+Connection ~ 3100 4250
+Text GLabel 3700 4250 2    50   Input ~ 0
+FOOT_R_DB
+Text Notes 900  4900 0    50   ~ 0
+Foot Switch Debounce
+Text Notes 900  2100 0    50   ~ 0
+Foot Switch Connector
+Wire Notes Line
+	4600 5050 500  5050
+Text GLabel 2550 1150 0    50   Input ~ 0
+FOOT_EXT_L
+Text GLabel 2400 800  0    50   Input ~ 0
+12-24V
+$Comp
+L Device:R_Small R17
+U 1 1 6002F9CC
+P 2650 1000
+F 0 "R17" H 2709 1046 50  0000 L CNN
+F 1 "10k" H 2709 955 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603" H 2650 1000 50  0001 C CNN
+F 3 "~" H 2650 1000 50  0001 C CNN
+F 4 "C25804" H 2650 1000 50  0001 C CNN "LCSC"
+	1    2650 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 800  2650 800 
+Wire Wire Line
+	2650 800  2650 900 
+$Comp
+L power:GND #PWR?
+U 1 1 6003393C
+P 2650 1550
+AR Path="/6003393C" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/6003393C" Ref="#PWR046"  Part="1" 
+F 0 "#PWR046" H 2650 1300 50  0001 C CNN
+F 1 "GND" H 2655 1377 50  0000 C CNN
+F 2 "" H 2650 1550 50  0001 C CNN
+F 3 "" H 2650 1550 50  0001 C CNN
+	1    2650 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 1100 2650 1150
+$Comp
+L Isolator:EL817 U4
+U 1 1 600363B1
+P 2950 1300
+F 0 "U4" H 3000 1600 50  0000 C CNN
+F 1 "EL817" H 3050 1500 50  0000 C CNN
+F 2 "Housings_DIP:DIP-4_W7.62mm_LongPads" H 2750 1100 50  0001 L CIN
+F 3 "http://www.everlight.com/file/ProductFile/EL817.pdf" H 2950 1300 50  0001 L CNN
+F 4 "C106900" H 2950 1300 50  0001 C CNN "LCSC"
+	1    2950 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 1400 2650 1550
+Wire Wire Line
+	2550 1150 2650 1150
+Connection ~ 2650 1150
+Wire Wire Line
+	2650 1150 2650 1200
+$Comp
+L Device:D_Small D?
+U 1 1 60039FB8
+P 2650 1300
+AR Path="/60039FB8" Ref="D?"  Part="1" 
+AR Path="/5FFD0414/60039FB8" Ref="D8"  Part="1" 
+F 0 "D8" V 2650 1100 50  0000 L CNN
+F 1 "1N4148" V 2750 950 50  0000 L CNN
+F 2 "Diodes_SMD:D_SOD-123" V 2650 1300 50  0001 C CNN
+F 3 "~" V 2650 1300 50  0001 C CNN
+F 4 "C81598" V 2650 1300 50  0001 C CNN "LCSC"
+	1    2650 1300
+	0    1    1    0   
+$EndComp
+Connection ~ 2650 1200
+Connection ~ 2650 1400
+$Comp
+L power:GND #PWR?
+U 1 1 6003AA8F
+P 3250 1550
+AR Path="/6003AA8F" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/6003AA8F" Ref="#PWR051"  Part="1" 
+F 0 "#PWR051" H 3250 1300 50  0001 C CNN
+F 1 "GND" H 3255 1377 50  0000 C CNN
+F 2 "" H 3250 1550 50  0001 C CNN
+F 3 "" H 3250 1550 50  0001 C CNN
+	1    3250 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 1400 3250 1550
+Text GLabel 3250 1200 2    50   Input ~ 0
+FOOT_L
+Text GLabel 4300 1150 0    50   Input ~ 0
+FOOT_EXT_R
+Text GLabel 4150 800  0    50   Input ~ 0
+12-24V
+$Comp
+L Device:R_Small R22
+U 1 1 6003EA63
+P 4400 1000
+F 0 "R22" H 4459 1046 50  0000 L CNN
+F 1 "10k" H 4459 955 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603" H 4400 1000 50  0001 C CNN
+F 3 "~" H 4400 1000 50  0001 C CNN
+F 4 "C25804" H 4400 1000 50  0001 C CNN "LCSC"
+	1    4400 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4350 800  4400 800 
+Wire Wire Line
+	4400 800  4400 900 
+$Comp
+L power:GND #PWR?
+U 1 1 6003EA6B
+P 4400 1550
+AR Path="/6003EA6B" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/6003EA6B" Ref="#PWR052"  Part="1" 
+F 0 "#PWR052" H 4400 1300 50  0001 C CNN
+F 1 "GND" H 4405 1377 50  0000 C CNN
+F 2 "" H 4400 1550 50  0001 C CNN
+F 3 "" H 4400 1550 50  0001 C CNN
+	1    4400 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 1100 4400 1150
+$Comp
+L Isolator:EL817 U5
+U 1 1 6003EA72
+P 4700 1300
+F 0 "U5" H 4750 1600 50  0000 C CNN
+F 1 "EL817" H 4800 1500 50  0000 C CNN
+F 2 "Housings_DIP:DIP-4_W7.62mm_LongPads" H 4500 1100 50  0001 L CIN
+F 3 "http://www.everlight.com/file/ProductFile/EL817.pdf" H 4700 1300 50  0001 L CNN
+F 4 "C106900" H 4700 1300 50  0001 C CNN "LCSC"
+	1    4700 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 1400 4400 1550
+Wire Wire Line
+	4300 1150 4400 1150
+Connection ~ 4400 1150
+Wire Wire Line
+	4400 1150 4400 1200
+$Comp
+L Device:D_Small D?
+U 1 1 6003EA7C
+P 4400 1300
+AR Path="/6003EA7C" Ref="D?"  Part="1" 
+AR Path="/5FFD0414/6003EA7C" Ref="D11"  Part="1" 
+F 0 "D11" V 4400 1100 50  0000 L CNN
+F 1 "1N4148" V 4500 950 50  0000 L CNN
+F 2 "Diodes_SMD:D_SOD-123" V 4400 1300 50  0001 C CNN
+F 3 "~" V 4400 1300 50  0001 C CNN
+F 4 "C81598" V 4400 1300 50  0001 C CNN "LCSC"
+	1    4400 1300
+	0    1    1    0   
+$EndComp
+Connection ~ 4400 1200
+Connection ~ 4400 1400
+$Comp
+L power:GND #PWR?
+U 1 1 6003EA84
+P 5000 1550
+AR Path="/6003EA84" Ref="#PWR?"  Part="1" 
+AR Path="/5FFD0414/6003EA84" Ref="#PWR053"  Part="1" 
+F 0 "#PWR053" H 5000 1300 50  0001 C CNN
+F 1 "GND" H 5005 1377 50  0000 C CNN
+F 2 "" H 5000 1550 50  0001 C CNN
+F 3 "" H 5000 1550 50  0001 C CNN
+	1    5000 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 1400 5000 1550
+Text GLabel 5000 1200 2    50   Input ~ 0
+FOOT_R
+Wire Notes Line
+	4600 5050 4600 2200
+Wire Notes Line
+	5600 2200 5600 500 
+Wire Notes Line
+	500  2200 5600 2200
+$Comp
+L Device:D_Small D?
+U 1 1 5F94F641
+P 2500 800
+AR Path="/5F94F641" Ref="D?"  Part="1" 
+AR Path="/5FFD0414/5F94F641" Ref="D12"  Part="1" 
+F 0 "D12" H 2500 593 50  0000 C CNN
+F 1 "1N4148" H 2500 684 50  0000 C CNN
+F 2 "Diodes_SMD:D_SOD-123" V 2500 800 50  0001 C CNN
+F 3 "~" V 2500 800 50  0001 C CNN
+F 4 "C81598" H 2500 800 50  0001 C CNN "LCSC"
+	1    2500 800 
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:D_Small D?
+U 1 1 5F94FC80
+P 4250 800
+AR Path="/5F94FC80" Ref="D?"  Part="1" 
+AR Path="/5FFD0414/5F94FC80" Ref="D13"  Part="1" 
+F 0 "D13" H 4250 593 50  0000 C CNN
+F 1 "1N4148" H 4250 684 50  0000 C CNN
+F 2 "Diodes_SMD:D_SOD-123" V 4250 800 50  0001 C CNN
+F 3 "~" V 4250 800 50  0001 C CNN
+F 4 "C81598" H 4250 800 50  0001 C CNN "LCSC"
+	1    4250 800 
+	-1   0    0    1   
+$EndComp
+$EndSCHEMATC
