@@ -289,7 +289,7 @@ F 3 "" H 3300 2950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3300 2600 3700 2600
+	3300 2600 3400 2600
 Connection ~ 3300 2600
 Wire Wire Line
 	3300 2600 3300 2650
@@ -1947,4 +1947,22 @@ Wire Wire Line
 Connection ~ 5850 4450
 Wire Wire Line
 	5850 4450 6200 4450
+NoConn ~ 9400 2850
+NoConn ~ 9400 2950
+NoConn ~ 9400 3250
+NoConn ~ 9400 3350
+$Comp
+L Connector:TestPoint_Flag TP1
+U 1 1 5FA2479D
+P 3400 2600
+F 0 "TP1" H 3450 2850 50  0000 L CNN
+F 1 "3.3V" H 3450 2750 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3600 2600 50  0001 C CNN
+F 3 "~" H 3600 2600 50  0001 C CNN
+	1    3400 2600
+	1    0    0    -1  
+$EndComp
+Connection ~ 3400 2600
+Wire Wire Line
+	3400 2600 3700 2600
 $EndSCHEMATC

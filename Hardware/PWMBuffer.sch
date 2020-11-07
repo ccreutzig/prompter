@@ -111,4 +111,19 @@ F 3 "" H 2400 2550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2400 2500 2400 2550
+$Comp
+L Connector:TestPoint_Flag TP6
+U 1 1 5FA2C9EF
+P 2400 2250
+AR Path="/60041CA2/5FA2C9EF" Ref="TP6"  Part="1" 
+AR Path="/60047352/5FA2C9EF" Ref="TP7"  Part="1" 
+AR Path="/6005538F/5FA2C9EF" Ref="TP8"  Part="1" 
+AR Path="/60055395/5FA2C9EF" Ref="TP9"  Part="1" 
+F 0 "TP9" H 2450 2500 50  0000 L CNN
+F 1 "PWM" H 2450 2400 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 2600 2250 50  0001 C CNN
+F 3 "~" H 2600 2250 50  0001 C CNN
+	1    2400 2250
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

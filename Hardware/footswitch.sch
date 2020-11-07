@@ -113,9 +113,9 @@ F 3 "http://www.ti.com/lit/gpn/sn74HC14" H 3400 3050 50  0001 C CNN
 	2    3400 3050
 	1    0    0    -1  
 $EndComp
-Text GLabel 3700 3050 2    50   Input ~ 0
+Text GLabel 4000 3050 2    50   Input ~ 0
 FOOT_L_DB
-Text GLabel 2650 3050 0    50   Input ~ 0
+Text GLabel 2300 3050 0    50   Input ~ 0
 FOOT_L
 $Comp
 L power:+3V3 #PWR?
@@ -182,8 +182,6 @@ Wire Wire Line
 	2700 3250 2800 3250
 Connection ~ 2700 3050
 Wire Wire Line
-	2700 3050 2650 3050
-Wire Wire Line
 	3100 3050 3000 3050
 Connection ~ 3100 3050
 Wire Wire Line
@@ -220,7 +218,7 @@ F 3 "" H 3100 3500 50  0001 C CNN
 	1    3100 3500
 	1    0    0    -1  
 $EndComp
-Text GLabel 2650 4250 0    50   Input ~ 0
+Text GLabel 2300 4250 0    50   Input ~ 0
 FOOT_R
 $Comp
 L power:+3V3 #PWR?
@@ -287,8 +285,6 @@ Wire Wire Line
 	2700 4450 2800 4450
 Connection ~ 2700 4250
 Wire Wire Line
-	2700 4250 2650 4250
-Wire Wire Line
 	3100 4250 3000 4250
 Wire Wire Line
 	3000 4450 3100 4450
@@ -325,7 +321,7 @@ F 3 "" H 3100 4700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 3100 4250
-Text GLabel 3700 4250 2    50   Input ~ 0
+Text GLabel 4000 4250 2    50   Input ~ 0
 FOOT_R_DB
 Text Notes 900  4900 0    50   ~ 0
 Foot Switch Debounce
@@ -374,7 +370,7 @@ U 1 1 600363B1
 P 2950 1300
 F 0 "U4" H 3000 1600 50  0000 C CNN
 F 1 "EL817" H 3050 1500 50  0000 C CNN
-F 2 "Housings_DIP:DIP-4_W7.62mm_LongPads" H 2750 1100 50  0001 L CIN
+F 2 "Housings_SOIC:SO-4_7.6x3.6mm_Pitch2.54mm" H 2750 1100 50  0001 L CIN
 F 3 "http://www.everlight.com/file/ProductFile/EL817.pdf" H 2950 1300 50  0001 L CNN
 F 4 "C106900" H 2950 1300 50  0001 C CNN "LCSC"
 	1    2950 1300
@@ -461,7 +457,7 @@ U 1 1 6003EA72
 P 4700 1300
 F 0 "U5" H 4750 1600 50  0000 C CNN
 F 1 "EL817" H 4800 1500 50  0000 C CNN
-F 2 "Housings_DIP:DIP-4_W7.62mm_LongPads" H 4500 1100 50  0001 L CIN
+F 2 "Housings_SOIC:SO-4_7.6x3.6mm_Pitch2.54mm" H 4500 1100 50  0001 L CIN
 F 3 "http://www.everlight.com/file/ProductFile/EL817.pdf" H 4700 1300 50  0001 L CNN
 F 4 "C106900" H 4700 1300 50  0001 C CNN "LCSC"
 	1    4700 1300
@@ -541,4 +537,64 @@ F 4 "C81598" H 4250 800 50  0001 C CNN "LCSC"
 	1    4250 800 
 	-1   0    0    1   
 $EndComp
+$Comp
+L Connector:TestPoint_Flag TP4
+U 1 1 5FA27E9E
+P 3700 3050
+F 0 "TP4" H 3750 3300 50  0000 L CNN
+F 1 "FootL" H 3750 3200 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3900 3050 50  0001 C CNN
+F 3 "~" H 3900 3050 50  0001 C CNN
+	1    3700 3050
+	1    0    0    -1  
+$EndComp
+Connection ~ 3700 3050
+Wire Wire Line
+	3700 3050 4000 3050
+$Comp
+L Connector:TestPoint_Flag TP5
+U 1 1 5FA290A1
+P 3700 4250
+F 0 "TP5" H 3750 4500 50  0000 L CNN
+F 1 "FootR" H 3750 4400 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3900 4250 50  0001 C CNN
+F 3 "~" H 3900 4250 50  0001 C CNN
+	1    3700 4250
+	1    0    0    -1  
+$EndComp
+Connection ~ 3700 4250
+Wire Wire Line
+	3700 4250 4000 4250
+Wire Wire Line
+	2300 3050 2400 3050
+$Comp
+L Connector:TestPoint_Flag TP2
+U 1 1 5FA2A61B
+P 2400 3050
+F 0 "TP2" H 2450 3300 50  0000 L CNN
+F 1 "FootL" H 2450 3200 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 2600 3050 50  0001 C CNN
+F 3 "~" H 2600 3050 50  0001 C CNN
+	1    2400 3050
+	1    0    0    -1  
+$EndComp
+Connection ~ 2400 3050
+Wire Wire Line
+	2400 3050 2700 3050
+Wire Wire Line
+	2300 4250 2400 4250
+$Comp
+L Connector:TestPoint_Flag TP3
+U 1 1 5FA2B2F1
+P 2400 4250
+F 0 "TP3" H 2450 4500 50  0000 L CNN
+F 1 "FootR" H 2450 4400 50  0000 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 2600 4250 50  0001 C CNN
+F 3 "~" H 2600 4250 50  0001 C CNN
+	1    2400 4250
+	1    0    0    -1  
+$EndComp
+Connection ~ 2400 4250
+Wire Wire Line
+	2400 4250 2700 4250
 $EndSCHEMATC
