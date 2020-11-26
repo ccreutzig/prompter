@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 6 6
+Sheet 3 6
 Title ""
 Date ""
 Rev ""
@@ -25,7 +25,7 @@ AR Path="/60041CA2/60091104" Ref="Q2"  Part="1"
 AR Path="/6005538F/60091104" Ref="Q4"  Part="1" 
 AR Path="/60047352/60091104" Ref="Q3"  Part="1" 
 AR Path="/60055395/60091104" Ref="Q5"  Part="1" 
-F 0 "Q5" H 2954 2296 50  0000 L CNN
+F 0 "Q2" H 2954 2296 50  0000 L CNN
 F 1 "IRLZ44N" H 2954 2205 50  0000 L CNN
 F 2 "TO_SOT_Packages_THT:TO-220-3_Vertical" H 3000 2175 50  0001 L CIN
 F 3 "http://www.irf.com/product-info/datasheets/data/irlz44n.pdf" H 2750 2250 50  0001 L CNN
@@ -61,7 +61,7 @@ AR Path="/60041CA2/60093386" Ref="R23"  Part="1"
 AR Path="/6005538F/60093386" Ref="R27"  Part="1" 
 AR Path="/60047352/60093386" Ref="R25"  Part="1" 
 AR Path="/60055395/60093386" Ref="R29"  Part="1" 
-F 0 "R29" V 1954 2250 50  0000 C CNN
+F 0 "R23" V 1954 2250 50  0000 C CNN
 F 1 "1k" V 2045 2250 50  0000 C CNN
 F 2 "Resistors_SMD:R_0402" H 2150 2250 50  0001 C CNN
 F 3 "~" H 2150 2250 50  0001 C CNN
@@ -81,7 +81,7 @@ AR Path="/60041CA2/60093ACC" Ref="R24"  Part="1"
 AR Path="/6005538F/60093ACC" Ref="R28"  Part="1" 
 AR Path="/60047352/60093ACC" Ref="R26"  Part="1" 
 AR Path="/60055395/60093ACC" Ref="R30"  Part="1" 
-F 0 "R30" H 2459 2446 50  0000 L CNN
+F 0 "R24" H 2459 2446 50  0000 L CNN
 F 1 "220k" H 2459 2355 50  0000 L CNN
 F 2 "Resistors_SMD:R_0402" H 2400 2400 50  0001 C CNN
 F 3 "~" H 2400 2400 50  0001 C CNN
@@ -119,7 +119,7 @@ AR Path="/60041CA2/5FA2C9EF" Ref="TP6"  Part="1"
 AR Path="/60047352/5FA2C9EF" Ref="TP7"  Part="1" 
 AR Path="/6005538F/5FA2C9EF" Ref="TP8"  Part="1" 
 AR Path="/60055395/5FA2C9EF" Ref="TP9"  Part="1" 
-F 0 "TP9" H 2450 2500 50  0000 L CNN
+F 0 "TP6" H 2450 2500 50  0000 L CNN
 F 1 "PWM" H 2450 2400 50  0000 L CNN
 F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 2600 2250 50  0001 C CNN
 F 3 "~" H 2600 2250 50  0001 C CNN
