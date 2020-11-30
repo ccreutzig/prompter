@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "main.hpp"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,7 +44,6 @@
 ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
 
-TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 
@@ -57,6 +56,8 @@ uint16_t adcVals[ADC_LEN];
 
 uint16_t knobValues[NR_POTS];
 
+uint8_t softwareValues[NR_POTS];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -66,7 +67,6 @@ static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_USART3_UART_Init(void);
-static void MX_TIM1_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -74,6 +74,46 @@ static void MX_TIM3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+void checkUSBData() {
+	if (dataFromUSBWaitingForProcessing) {
+		char buffer[USB_BUFFER_LEN+1];
+		memcpy(buffer,dataFromUSB,bytesReadFromUSB);
+		const uint8_t bytesRead = bytesReadFromUSB;
+		buffer[bytesRead] = '\0';
+		// reset early, so USB callback can work
+		bytesReadFromUSB = 0;
+		dataFromUSBWaitingForProcessing = 0;
+
+		if (bytesRead < 4) {
+			return;
+		}
+
+		// commands:
+		// Ln mmm
+		// Set light n to mmm%
+		if (buffer[0] == 'L') {
+			int8_t channel = buffer[1] - '0';
+			if (channel < 1 || channel > 4) {
+				return;
+			}
+			uint8_t value = 0;
+			int8_t k;
+			for (k=3; buffer[k] >= '0' && buffer[k] <= '9'; ++k) {
+				value *= 10;
+				value += buffer[k] - '0';
+			}
+			softwareValues[channel-1] = value;
+		}
+	}
+}
+
+void updatePWM() {
+	__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_1,(4*knobValues[0]*softwareValues[0])/100);
+	__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_2,(4*knobValues[1]*softwareValues[1])/100);
+	__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_3,(4*knobValues[2]*softwareValues[2])/100);
+	__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_4,(4*knobValues[3]*softwareValues[3])/100);
+}
 
 /* USER CODE END 0 */
 
@@ -84,7 +124,6 @@ static void MX_TIM3_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-//  initBeforeHAL();
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -93,14 +132,12 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-//  initBetweenHALandClock();
   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-//  initBetweenClockAndPeripherals();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -110,19 +147,28 @@ int main(void)
   MX_TIM4_Init();
   MX_USART3_UART_Init();
   MX_USB_DEVICE_Init();
-  MX_TIM1_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  HAL_ADC_Start_DMA(&hadc1, adcVals, ADC_LEN);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adcVals, ADC_LEN);
   HAL_TIM_Base_Start_IT(&htim3);
-  //  initBeforeLoop();
-//  HAL_ADC_Start_DMA(&hadc1, adcVals, ADC_LEN);
+  HAL_TIM_Base_Start_IT(&htim4);
+
+  softwareValues[0] = 100;
+  softwareValues[1] = 100;
+  softwareValues[2] = 100;
+  softwareValues[3] = 100;
+  HAL_GPIO_WritePin(Status_LED_GPIO_Port, Status_LED_Pin, GPIO_PIN_SET);
+  HAL_Delay(1000);
+  HAL_GPIO_WritePin(Status_LED_GPIO_Port, Status_LED_Pin, GPIO_PIN_RESET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	checkUSBData();
+
+    updatePWM();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -250,52 +296,6 @@ static void MX_ADC1_Init(void)
 }
 
 /**
-  * @brief TIM1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM1_Init(void)
-{
-
-  /* USER CODE BEGIN TIM1_Init 0 */
-
-  /* USER CODE END TIM1_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM1_Init 1 */
-
-  /* USER CODE END TIM1_Init 1 */
-  htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 0;
-  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 65535;
-  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM1_Init 2 */
-
-  /* USER CODE END TIM1_Init 2 */
-
-}
-
-/**
   * @brief TIM3 Initialization Function
   * @param None
   * @retval None
@@ -365,7 +365,6 @@ static void MX_TIM4_Init(void)
 
   /* USER CODE END TIM4_Init 0 */
 
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_OC_InitTypeDef sConfigOC = {0};
 
@@ -373,20 +372,11 @@ static void MX_TIM4_Init(void)
 
   /* USER CODE END TIM4_Init 1 */
   htim4.Instance = TIM4;
-  htim4.Init.Prescaler = 7199;
+  htim4.Init.Prescaler = 1;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 1000;
+  htim4.Init.Period = 4095;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
   if (HAL_TIM_PWM_Init(&htim4) != HAL_OK)
   {
     Error_Handler();
@@ -398,7 +388,7 @@ static void MX_TIM4_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 0;
+  sConfigOC.Pulse = 500;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
@@ -418,6 +408,11 @@ static void MX_TIM4_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM4_Init 2 */
+
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_4);
 
   /* USER CODE END TIM4_Init 2 */
   HAL_TIM_MspPostInit(&htim4);
@@ -508,9 +503,9 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(DMX_R_W_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Foot_R_Pin Foot_L_Pin */
-  GPIO_InitStruct.Pin = Foot_R_Pin|Foot_L_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  /*Configure GPIO pins : Foot_L_Pin Foot_R_Pin */
+  GPIO_InitStruct.Pin = Foot_L_Pin|Foot_R_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
@@ -520,6 +515,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
 }
 
 /* USER CODE BEGIN 4 */
@@ -527,13 +526,21 @@ static void MX_GPIO_Init(void)
 // Called when buffer is completely filled
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
   if (hadc == &hadc1) {
-    Status_LED_GPIO_Port->ODR ^= Status_LED_Pin;
 	for (int k=0; k<NR_POTS; ++k) {
       knobValues[k] = adcVals[k];
 	}
   }
 }
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if (GPIO_Pin == Foot_L_Pin) {
+		CDC_Transmit_FS("L", 1);
+	}
+	if (GPIO_Pin == Foot_R_Pin) {
+		CDC_Transmit_FS("R", 1);
+	}
+}
 
 /* USER CODE END 4 */
 

@@ -64,10 +64,12 @@ void Error_Handler(void);
 #define Status_LED_GPIO_Port GPIOC
 #define DMX_R_W_Pin GPIO_PIN_2
 #define DMX_R_W_GPIO_Port GPIOB
+#define Foot_L_Pin GPIO_PIN_12
+#define Foot_L_GPIO_Port GPIOB
+#define Foot_L_EXTI_IRQn EXTI15_10_IRQn
 #define Foot_R_Pin GPIO_PIN_13
 #define Foot_R_GPIO_Port GPIOB
-#define Foot_L_Pin GPIO_PIN_14
-#define Foot_L_GPIO_Port GPIOB
+#define Foot_R_EXTI_IRQn EXTI15_10_IRQn
 #define L1MAN_Pin GPIO_PIN_6
 #define L1MAN_GPIO_Port GPIOC
 #define L2MAN_Pin GPIO_PIN_7

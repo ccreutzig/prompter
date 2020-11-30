@@ -33,6 +33,10 @@
 #include "usbd_def.h"
 
 /* USER CODE BEGIN INCLUDE */
+#define USB_BUFFER_LEN 128
+extern char dataFromUSB[];
+extern uint16_t bytesReadFromUSB;
+extern uint8_t dataFromUSBWaitingForProcessing; // bool, really
 
 /* USER CODE END INCLUDE */
 
